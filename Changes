@@ -1,5 +1,10 @@
 Revision history for Config-Simple-Inherit
 
+0.04 	Thu Jun 5 15:11:12 EDT 2008
+	Remove request that UNIVERSAL export VERSION
+	to address test reports of failure 
+	from CPAN testers.
+
 0.03	Wed Jun 4 21:16:35 EDT 2008
 	I've now integrated this with an application 
 	under development and added an EXAMPLES section 

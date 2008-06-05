@@ -4,10 +4,11 @@ package Config::Simple::Inherit;
 use warnings;
 use strict;
 use base qw( Config::Simple );
-use UNIVERSAL qw( isa can VERSION );
+use UNIVERSAL qw( isa can );
+# use UNIVERSAL qw( isa can VERSION );
 use Data::Dumper;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub inherit {
   my $class = shift;
@@ -16,7 +17,7 @@ sub inherit {
   { no strict 'refs';
     unless(defined($args->{'base_config'}) &&
         UNIVERSAL::isa($args->{'base_config'},'Config::Simple')) {
-      print STDERR "Now we create the first Config::Simple object using $args->{'filename'}; none already exists.\n";
+      # print STDERR "Now we create the first Config::Simple object using $args->{'filename'}; none already exists.\n";
       # return "->inherit() has returned with debugging message.";
       return Config::Simple->new( filename => $args->{'filename'} );
     }
@@ -50,7 +51,7 @@ Config::Simple::Inherit - Inherit values from, overwrite a base configuration
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
@@ -247,7 +248,14 @@ Public License.
 
 =head1 SEE ALSO
 
-Config::Simple.
+Config::Simple which handles ini, html and simple formats.
+Config::Simple::Inherit returns a Config::Simple object, and
+the accessors (and other methods) for its configuration are
+documented by Mr. Ruzmetov in the perldoc for his module.
+
+If you need some combination of json, yaml, xml, perl, ini or
+Config::General formats, take a look at: Config::Merge, which I
+learned of after releasing version 0.03 of this module to cpan.
 
 =cut
 
